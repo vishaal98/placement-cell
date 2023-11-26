@@ -1,6 +1,5 @@
 const express = require("express");
 const app = express();
-PORT = 3000;
 const db = require("./config/mongoose");
 
 require("dotenv").config();
@@ -53,6 +52,8 @@ app.use("/", require("./routes"));
 app.use((req, res) => {
   res.status(404).render("404");
 });
+
+const PORT = process.env.PORT;
 
 app.listen(PORT, (err) => {
   if (err) {
